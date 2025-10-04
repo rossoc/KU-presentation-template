@@ -1,0 +1,264 @@
+\ProvidesPackage{KUstyle}
+
+\RequirePackage[ddmmyyyy]{datetime}
+\RequirePackage{fontspec}
+\RequirePackage{etoolbox}
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{hyperref}
+\RequirePackage{microtype}
+
+\newcommand*{\topline}[1]{\def\@topline{#1}}
+
+\renewcommand{\dateseparator}{--}
+\setmainfont{Arial}
+\definecolor{KUrod}{RGB}{144,26,30}
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm} 
+\setbeamertemplate{frametitle}{
+    \insertframetitle
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor*{item}{}
+\setbeamertemplate{itemize items}[circle]
+\addtolength{\headsep}{0.9cm}
+\setbeamercolor{rodbox}{fg=white,bg=KUrod}
+\setbeamercolor{hvidbox}{fg=black,bg=white}
+
+\makeatletter
+\define@key{beamerframe}{rod}[true]{
+    \setbeamercolor{titlelike}{fg=white}
+    \setbeamercolor{normal text}{fg=white}
+    \usebeamercolor[fg]{normal text}
+    \setbeamercolor{background canvas}{bg=KUrod}
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.5,0.3)
+                \vspace{-0.1cm}
+                \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+        \end{textblock}
+        \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
+        \ifdefined\@topline
+        \begin{textblock}{10}(3,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+        \begin{textblock}{10}(13,0.3)
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+        \end{textblock}
+    }
+}
+\define@key{beamerframe}{hvid}[true]{
+    \setbeamercolor{titlelike}{fg=KUrod}
+    \setbeamercolor{normal text}{fg=black}
+    \usebeamercolor[fg]{normal text}
+    \setbeamercolor{background canvas}{bg=white}
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.5,0.3)
+                \vspace{-0.1cm}
+                \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+        \end{textblock}
+        \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
+        \ifdefined\@topline
+        \begin{textblock}{10}(3,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+        \begin{textblock}{10}(13,0.3)
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+        \end{textblock}
+    }
+}
+
+\define@key{beamerframe}{billede}[true]{
+    \setbeamertemplate{headline}{
+        \begin{textblock}{10}(0.5,0.3)
+                \vspace{-0.1cm}
+                \includegraphics[height=9pt]{KU/KU-logo.png}
+        \end{textblock}
+        \begin{textblock}{10}(1,0.3)
+                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+        \end{textblock}
+        \ifdefined\@topline
+        \begin{textblock}{10}(3,0.3)
+            \begin{flushright}
+                \vspace{-0.33cm}
+                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
+            \end{flushright}
+        \end{textblock}
+        \fi
+        \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
+        \begin{textblock}{10}(13,0.3)
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+        \end{textblock}
+    }
+}
+
+\define@key{beamerframe}{plain}[true]{
+    \setbeamertemplate{headline}{}
+}
+
+\makeatother
+
+\usepackage{svg}
+\usepackage{listings}
+\usepackage{tcolorbox}
+
+\lstset{basicstyle=\scriptsize\ttfamily}
+
+% Definition of a style for code, matter of taste
+\lstdefinestyle{mystyle}{
+  language=Python,
+  basicstyle=\ttfamily\scriptsize,
+  backgroundcolor=\color[HTML]{F7F7F7},
+  rulecolor=\color[HTML]{EEEEEE},
+  identifierstyle=\color[HTML]{24292E},
+  emphstyle=\color[HTML]{005CC5},
+  keywordstyle=\color[HTML]{D73A49},
+  commentstyle=\color[HTML]{6A737D},
+  stringstyle=\color[HTML]{032F62},
+  emph={@property,self,range,True,False},
+  morekeywords={super,with,as,lambda},
+  literate=%
+    {+}{{{\color[HTML]{D73A49}+}}}1
+    {-}{{{\color[HTML]{D73A49}-}}}1
+    {*}{{{\color[HTML]{D73A49}*}}}1
+    {/}{{{\color[HTML]{D73A49}/}}}1
+    {=}{{{\color[HTML]{D73A49}=}}}1
+    {/=}{{{\color[HTML]{D73A49}=}}}1,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=none,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=4,
+  frame=single,
+}
+\lstset{style=mystyle}
+
+
+% MACROS #####################################################################
+%% STAT RELATED
+% Normal distribution
+\newcommand{\N}{\mathcal{N}}
+% theta 
+\newcommand{\0}{\theta}
+% A sample space
+\newcommand{\XX}{\mathcal{X}}
+% A label space
+\newcommand{\YY}{\mathcal{Y}}
+% Model
+\newcommand{\PP}{\mathcal{P}}
+% Sample space
+\newcommand{\OO}{\mathcal{O}}
+% independent
+\newcommand{\indep}{\!\perp\!\!\!\perp}
+% not independent
+\newcommand{\nindep}{\not\!\perp\!\!\!\perp}
+% Expected value
+\newcommand{\E}{\mathbb{E}}
+% Variance 
+\newcommand{\V}{\mathbb{V}}
+% Covariance 
+\newcommand{\Cov}{\mathrm{Cov}}
+% The real numbers
+\newcommand{\R}{\mathbb{R}}
+% rightarrow
+\newcommand{\rarr}{\rightarrow}
+%mapsto
+\newcommand{\mt}{\mapsto}
+%% Others
+% Left-right bracket
+\newcommand{\lr}[1]{\left (#1\right)}
+% Left-right square bracket
+\newcommand{\lrs}[1]{\left [#1 \right]}
+% Left-right curly bracket
+\newcommand{\lrc}[1]{\left \{#1\right\}}
+% Left-right absolute value
+\newcommand{\lra}[1]{\left |#1\right|}
+% Left-right upper value
+\newcommand{\lru}[1]{\left \lceil#1\right\rceil}
+% Scalar product
+\newcommand{\vp}[2]{\left \langle #1 , #2 \right \rangle}
+% Indicator function with an optional argument
+\NewDocumentCommand{\1}{o}{\mathds 1{\IfValueT{#1}{\lr{#1}}}}
+% Probability function
+\let\P\undefined
+\NewDocumentCommand{\P}{o}{\mathbb P{\IfValueT{#1}{\lr{#1}}}}
+% A hypothesis space
+\newcommand{\HH}{\mathcal H}
+% A nicer emptyset symbol
+\let\emptyset\varnothing
+% Sign operator
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\sgn}[1]{\sign\lr{#1}}
+% KL operator
+\DeclareMathOperator{\KL}{KL}
+% kl operator
+\DeclareMathOperator{\kl}{kl}
+
+\usepackage{multicol} % Package for multiple coloumns
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows, fit}
+
+\newcommand{\frontpage}{
+{
+  \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight]{KU/frontpage.jpg}}
+  \begin{frame}
+    \begin{textblock*}{\textwidth}(0.57\textwidth,0.1\textheight)
+      \begin{beamercolorbox}[wd=6.4cm,ht=7.7cm,sep=0.5cm]{hvidbox}
+        \fontsize{4}{10}\fontfamily{ptm}\selectfont \textls[200]{UNIVERSITY OF COPENHAGEN}
+        \noindent\textcolor{KUrod}{\rule{5.4cm}{0.4pt}}
+      \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock*}{\textwidth}(0.57\textwidth,0.1\textheight)
+      \begin{beamercolorbox}[wd=6.4cm,sep=0.5cm]{hvidbox}
+        \Huge \textcolor{KUrod}{\course}
+        \vspace{0.5cm}
+        \par
+        \large \worktitle
+        \par
+        \vspace{0.3cm}
+        \ifdefined\workauthor
+        \tiny \workauthor
+        \vspace{0.2cm}
+        \par
+        \fi
+        \normalsize \presentationauthor \\
+        \presentationdate
+      \end{beamercolorbox}
+    \end{textblock*}
+    \begin{textblock}{1}(14.2,11.44)
+      \includegraphics[width=1cm]{KU/KU-logo.png}
+    \end{textblock}
+  \end{frame}
+  }
+}
+
+\newcommand{\titemize}{
+ {\begin{itemize}}
+{\end{itemize}}
+}
+
+\newenvironment{citeblock}
+{%
+  \begin{textblock*}{\textwidth}(10pt,\textheight)  \color{gray}\tiny\noindent
+  \begin{minipage}{\textwidth}
+}
+{%
+  \end{minipage}%
+  \normalcolor
+  \end{textblock*}%
+}

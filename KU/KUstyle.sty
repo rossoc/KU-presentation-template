@@ -1,5 +1,3 @@
-\ProvidesPackage{KUstyle}
-
 \RequirePackage[ddmmyyyy]{datetime}
 \RequirePackage{fontspec}
 \RequirePackage{etoolbox}
@@ -35,7 +33,7 @@
                 \includegraphics[height=9pt]{KU/KU-logo.png}
         \end{textblock}
         \begin{textblock}{10}(1,0.3)
-                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+                \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
         \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
         \ifdefined\@topline
@@ -47,7 +45,7 @@
         \end{textblock}
         \fi
         \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
         \end{textblock}
     }
 }
@@ -62,7 +60,7 @@
                 \includegraphics[height=9pt]{KU/KU-logo.png}
         \end{textblock}
         \begin{textblock}{10}(1,0.3)
-                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+                \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
         \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
         \ifdefined\@topline
@@ -74,7 +72,7 @@
         \end{textblock}
         \fi
         \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
         \end{textblock}
     }
 }
@@ -86,7 +84,7 @@
                 \includegraphics[height=9pt]{KU/KU-logo.png}
         \end{textblock}
         \begin{textblock}{10}(1,0.3)
-                \fontsize{5}{5}\fontfamily{ptm}\selectfont \textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
+                \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
         \ifdefined\@topline
         \begin{textblock}{10}(3,0.3)
@@ -98,7 +96,7 @@
         \fi
         \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
         \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber}
+            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
         \end{textblock}
     }
 }
@@ -219,7 +217,7 @@
   \begin{frame}
     \begin{textblock*}{\textwidth}(0.57\textwidth,0.1\textheight)
       \begin{beamercolorbox}[wd=6.4cm,ht=7.7cm,sep=0.5cm]{hvidbox}
-        \fontsize{4}{10}\fontfamily{ptm}\selectfont \textls[200]{UNIVERSITY OF COPENHAGEN}
+        \fontsize{4}{10}\textls[200]{UNIVERSITY OF COPENHAGEN}
         \noindent\textcolor{KUrod}{\rule{5.4cm}{0.4pt}}
       \end{beamercolorbox}
     \end{textblock*}
@@ -261,4 +259,23 @@
   \end{minipage}%
   \normalcolor
   \end{textblock*}%
+}
+
+\setbeamertemplate{section in toc}{%
+  \hspace{1em}\inserttocsectionnumber. \inserttocsection \newline%
+  \vspace{-2em}%
+}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vfill}{\vskip0.2em}{}{}
+\makeatother
+
+\AtBeginSection[]
+{
+  \begin{frame}[hvid, plain]
+    \vfill
+    \centering
+    \Huge \insertsectionhead\par%
+    \vfill
+  \end{frame}
 }

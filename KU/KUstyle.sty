@@ -1,8 +1,19 @@
 \RequirePackage[ddmmyyyy]{datetime}
+\usepackage{fontspec}
 \RequirePackage{etoolbox}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{hyperref}
 \RequirePackage{microtype}
+
+\usefonttheme{serif}
+\setmainfont{HKGrotesk}[
+    Path = ./KU/ ,
+    Extention = .ttf ,
+    UprightFont = *-Regular ,
+    BoldFont = *-Bold ,
+    ItalicFont = *-Italic ,
+    BoldItalicFont = *-BoldItalic ,
+]
 
 \newcommand*{\topline}[1]{\def\@topline{#1}}
 

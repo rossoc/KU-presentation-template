@@ -45,17 +45,13 @@
                 \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
         \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
-        \ifdefined\@topline
-        \begin{textblock}{10}(3,0.3)
-            \begin{flushright}
-                \vspace{-0.33cm}
-                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
-            \end{flushright}
-        \end{textblock}
-        \fi
-        \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
-        \end{textblock}
+        \begin{textblock*}{\dimexpr\paperwidth-1.5cm\relax}(1cm, 0.17cm)
+            \raggedleft
+            \tiny\textcolor{black}{%
+                \ifdefined\@topline \@topline \quad\quad \fi
+                \today \quad\quad \insertframenumber/\inserttotalframenumber
+            }
+        \end{textblock*}
     }
 }
 \define@key{beamerframe}{hvid}[true]{
@@ -72,17 +68,13 @@
                 \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
         \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
-        \ifdefined\@topline
-        \begin{textblock}{10}(3,0.3)
-            \begin{flushright}
-                \vspace{-0.33cm}
-                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
-            \end{flushright}
-        \end{textblock}
-        \fi
-        \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
-        \end{textblock}
+        \begin{textblock*}{\dimexpr\paperwidth-1.5cm\relax}(1cm, 0.17cm)
+            \raggedleft
+            \tiny\textcolor{black}{%
+                \ifdefined\@topline \@topline \quad\quad \fi
+                \today \quad\quad \insertframenumber/\inserttotalframenumber
+            }
+        \end{textblock*}
     }
 }
 
@@ -95,18 +87,13 @@
         \begin{textblock}{10}(1,0.3)
                 \fontsize{5}{5}\textcolor{black}{\textls[200]{UNIVERSITY OF COPENHAGEN}}
         \end{textblock}
-        \ifdefined\@topline
-        \begin{textblock}{10}(3,0.3)
-            \begin{flushright}
-                \vspace{-0.33cm}
-                \tiny\textcolor{black}{\@topline\ \ \ \ \ }
-            \end{flushright}
-        \end{textblock}
-        \fi
-        \includegraphics[width=\paperwidth,height=14pt]{KU/hoved.png}
-        \begin{textblock}{10}(13,0.3)
-            \tiny\textcolor{black}{\today\ \ \ \ \ \insertframenumber/\inserttotalframenumber}
-        \end{textblock}
+        \begin{textblock*}{\dimexpr\paperwidth-1.5cm\relax}(1cm, 0.17cm)
+            \raggedleft
+            \tiny\textcolor{black}{%
+                \ifdefined\@topline \@topline \quad\quad \fi
+                \today \quad\quad \insertframenumber/\inserttotalframenumber
+            }
+        \end{textblock*}
     }
 }
 
